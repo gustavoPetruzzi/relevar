@@ -9,6 +9,20 @@ import { HomePage } from '../pages/home/home';
 import { SplashPage } from '../pages/splash/splash';
 import { LoginPage } from '../pages/login/login';
 
+//AF
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+export const firebaseConfig = {
+  apiKey: "AIzaSyBL7LrUdPL17ifVhMLBA0Rsu0-RLn81hF4",
+  authDomain: "logueo-ffa46.firebaseapp.com",
+  databaseURL: "https://logueo-ffa46.firebaseio.com",
+  projectId: "logueo-ffa46",
+  storageBucket: "logueo-ffa46.appspot.com",
+  messagingSenderId: "799164691041"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -18,19 +32,27 @@ import { LoginPage } from '../pages/login/login';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig, 'unaApp'),
+    AngularFireAuthModule,
+    AngularFirestoreModule.enablePersistence(),
+    AngularFirestoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     SplashPage,
-    LoginPage
+    LoginPage,
+    HomePage
     
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AngularFireDatabase
   ]
 })
 export class AppModule {}

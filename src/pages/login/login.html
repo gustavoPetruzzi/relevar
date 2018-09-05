@@ -4,18 +4,17 @@
         <img class="imgLogin" src="assets/imgs/calavera.png">
       </ion-col>
     </ion-row>
-    <div class="login">
+    <div class="loginForm">
       <form (ngSubmit)="ingresar()" #loginForm="ngForm">
         <ion-item class="rounded">
-          <ion-label>  <ion-icon name="person"></ion-icon> Nombre</ion-label>
-          <ion-input type="text" [(ngModel)]="nombre" name="Nombre" class="item" required >  <ion-icon name="person"></ion-icon></ion-input>
+          <ion-label stacked> Nombre</ion-label>
+          <ion-input  type="text" [(ngModel)]="nombre" name="Nombre" class="item" required >  <ion-icon name="person"></ion-icon></ion-input>
         </ion-item>
         <ion-item class="rounded">
-          <ion-label>   <ion-icon name="key"></ion-icon> Contraseña</ion-label>
-          <ion-icon name="person"></ion-icon>
+          <ion-label stacked> Contraseña  </ion-label>
           <ion-input type="password" [(ngModel)]="pass" name="Contrasena" class="item" required ></ion-input>
         </ion-item>
-        <button ion-button color="danger" round type="submit" block [disabled]="!loginForm.form.valid" >Loguearse</button>
+        <button ion-button color="light" style="color:black" round type="submit" block [disabled]="!loginForm.form.valid" >Ingresar</button>
       </form>
     </div>
     <button ion-button color="secondary" full round (click)="registrar()">Registrarse </button>
